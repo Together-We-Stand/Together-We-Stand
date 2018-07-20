@@ -1,9 +1,9 @@
-scope Tutorial
+scope SpellTest
     globals
         private constant integer SPELL_ID = 'AHtc'
     endglobals
     
-    private struct Tutorial extends abi
+    private struct SpellTest extends abi
         private unit caster
         
         private method onDestroy takes nothing returns nothing
@@ -16,7 +16,7 @@ scope Tutorial
         
         private method update takes real period returns boolean
             call BJDebugMsg("update")
-            return false
+            return runtime < 10.00
         endmethod
         
         private static method create takes unit whichUnit returns thistype
@@ -34,15 +34,9 @@ scope Tutorial
         endmethod
         
         private static method onInit takes nothing returns nothing
-            local trigger t = CreateTrigger()
-            local integer i = 0
-            loop
-                exitwhen i >= 18
-                call TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_SPELL_CAST, null)
-                set i = i + 1
-            endloop
-            call TriggerAddCondition(t, function thistype.run)
-            set t = null
+			call BJDebugMsg("AAA")
+			debug call CreateTestUnit('Hmkg', SPELL_ID, 1)
+			debug call RegisterSpellEffectEvent(SPELL_ID, function thistype.run)
         endmethod
     endstruct
 endscope
