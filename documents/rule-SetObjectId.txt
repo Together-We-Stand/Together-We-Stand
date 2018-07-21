@@ -1,0 +1,17 @@
+ObjectId: ABCD
+	-	A: ObjectType
+		+	Unit: u
+		+	Item: i
+		+	Dest: d
+		+	Dood: o
+		+	Abi : a
+		+	Efx : e
+		+	Upg : u
+		+	Sys : s
+	
+	-	B: CreatorId
+		+	Phong: p
+		+	Cuong: c
+		+	Binh : b
+		
+	-	C and D free
