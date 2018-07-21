@@ -15,7 +15,7 @@ scope SpellTest
         endmethod
         
         private method update takes real period returns boolean
-            call BJDebugMsg("update")
+            call BJDebugMsg("runtime: " + R2S(runtime))
             return runtime < 10.00
         endmethod
         
@@ -34,7 +34,6 @@ scope SpellTest
         endmethod
         
         private static method onInit takes nothing returns nothing
-			call BJDebugMsg("AAA")
 			debug call CreateTestUnit('Hmkg', SPELL_ID, 1)
 			debug call RegisterSpellEffectEvent(SPELL_ID, function thistype.run)
         endmethod
